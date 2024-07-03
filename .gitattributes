@@ -19,6 +19,9 @@
 
 # Set file-specific attributes
 README.md linguist-language=Markdown
+*.py linguist-language=Python
+*.js linguist-language=JavaScript
+
 
 # Ignore changes to specific files
 config.json -diff
