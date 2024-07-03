@@ -4,6 +4,7 @@ from configs import db_settngs
 from sqlalchemy.orm import declarative_base
 
 
+# Creating url objects using env vaeiables
 url_object = URL.create(
     drivername="postgresql",
     username=db_settngs.PGUSER,
@@ -12,6 +13,7 @@ url_object = URL.create(
     database=db_settngs.PGDATABASE,
     port=db_settngs.PGPORT,
 )
+# establishing connection
 try:
     engine = create_engine(url_object)
     with engine.connect() as conn:
@@ -23,6 +25,7 @@ try:
 except Exception as e:
     print(f"Error: {e}")
 
+# returning the base to inherit for data model creation
 base = declarative_base()
 
 
