@@ -1,0 +1,33 @@
+# Set default behavior for text files
+* text=auto
+
+# Specify files to treat as binary (non-text) files
+*.jpg binary
+*.png binary
+*.pdf binary
+
+# Specify files to treat as text files regardless of contents
+*.html text
+*.css text
+*.js text
+
+# Specify specific line-ending style (LF for Unix-like systems)
+* text eol=lf
+
+# Ignore whitespace changes for specific files
+*.xml -whitespace
+
+# Set file-specific attributes
+README.md linguist-language=Markdown
+*.py linguist-language=Python
+*.js linguist-language=JavaScript
+
+
+# Ignore changes to specific files
+config.json -diff
+
+# Ensure files are treated as case-sensitive
+*.sh case-sensitive
+
+# Specify different merge strategies for specific files
+*.txt merge=ours
