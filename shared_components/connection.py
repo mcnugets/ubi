@@ -2,6 +2,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, URL, text
 from configs import db_settngs
 from sqlalchemy.orm import declarative_base
+from sqlalchemy.exc import SQLAlchemyError
 
 
 # Creating url objects using env vaeiables
@@ -22,15 +23,19 @@ try:
 
     db_session = sessionmaker(bind=engine, autoflush=False)
 
+    def get_db():
+        db = db_session()
+        try:
+            yield db
+        except SQLAlchemyError as err:
+            print(f"Error: {err}")
+
+        finally:
+            db.close()
+
 except Exception as e:
     print(f"Error: {e}")
 
 # returning the base to inherit for data model creation
 base = declarative_base()
 
-
-# first we establish connection
-# then we create models
-# then we create schemas
-# then we create routing
-# then we create
