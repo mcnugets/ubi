@@ -10,11 +10,11 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     author='Sultan',
-    url="https://github.com/mcnugets/ubi.git@database_connection",
+    url="https://github.com/mcnugets/ubi.git",
     install_requires=[
         'sqlalchemy>=1.4.0,',
         'pydantic>=1.7.1',
         'python-dotenv>=0.17.0',
-        'shared_db_connection @ git+https://github.com/mcnugets/ubi.git@database_connection',
+        
     ],
 )
