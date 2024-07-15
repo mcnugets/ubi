@@ -3,18 +3,17 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='shared_db_connection',
-    version='0.1.0', 
+    name="shared_db_connection",
+    version="0.1.0",
     packages=find_packages(),
-    description='shared database connection',
-    long_description=open('README.md').read(),
+    description="shared database connection",
+    long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    author='Sultan',
+    author="Sultan",
     url="https://github.com/mcnugets/ubi.git@database_connection",
     install_requires=[
-        'sqlalchemy>=1.4.0,',
-        'pydantic>=1.7.1',
-        'python-dotenv>=0.17.0',
-        
+        "sqlalchemy>=1.4.0,",
+        "pydantic>=1.7.1",
+        "python-dotenv>=0.17.0",
     ],
 )
