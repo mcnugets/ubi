@@ -1,8 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from .src.api.routes import router
+from .dependencies import is_valid_token
 
-app = FastAPI()
+# TODO: create generative token for authentication
+# TODO: create proper sha256 hashing to hash password
+app = FastAPI()  # token param missing
 
 
-@app.get('/api')
-async def root():
-    return {"message": "Hello World"}
+app.include_router(router=router)

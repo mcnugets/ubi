@@ -1,7 +1,10 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, VARCHAR, Date
 from sqlalchemy.orm import relationship
-from shared_components.connection import base
+import os
+from .....shared_components.connection import base
 
+
+os.path('')
 # user fields:
 # user id
 # user username
