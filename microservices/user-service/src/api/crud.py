@@ -7,17 +7,20 @@ from fastapi import HTTPException, status
 
 
 def create_user(db: Session, user_create: user_schema.UserRequest):
-    hashed_password = user_create.password + "encrypted code" # requires sha-256 encryption 
+    hashed_password = (
+        user_create.password + "encrypted code"
+    )  # requires sha-256 encryption
     try:
         db_user = user.User(
-            user_create.email,
-            user_create.username,
-            user_create.date_created,
-            hashed_password,
+            email=user_create.email,
+            username=user_create.username,
+            date_created=user_create.date_created,
+            hashed_password=hashed_password,
         )
 
         db.add(db_user)
         db.commit()
+        print(f'The user has been successfully create: {user_create.username}')
         db.refresh(db_user)
         return db_user
     except SQLAlchemyError as sql_error:
