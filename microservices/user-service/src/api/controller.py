@@ -1,5 +1,5 @@
 from . import crud
-from schema import user_schema
+from ..schema import user_schema
 from fastapi import Depends
 from sqlalchemy.orm import Session
 
