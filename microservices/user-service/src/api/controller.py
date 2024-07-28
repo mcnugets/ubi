@@ -6,3 +6,6 @@ from sqlalchemy.orm import Session
 
 def create_user(db: Session, user_create: user_schema.UserRequest):
     return crud.create_user(db=db, user_create=user_create)
+
+def login_user(db: Session, login_user: user_schema.UserLogin):
+    return crud.login(db=db, validate=login_user)

@@ -17,7 +17,11 @@ router = APIRouter(
 #     tags=["user"],
 #     responses={404: {"description": "not found"}}
 # )
-
+ 
 @router.post("/create_user")
 def create_user(user: user_schema.UserRequest, db: Session = Depends(get_db)):
     return controller.create_user(db=db, user_create=user)
+
+@router.post('/login')
+def login_user():
+    pass
