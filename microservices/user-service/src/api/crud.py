@@ -5,7 +5,10 @@ from typing import Tuple, Optional
 from sqlalchemy.exc import SQLAlchemyError, NoResultFound
 from fastapi import HTTPException, status
 
-
+# cryptography and authorization section
+import secrets
+from argon2 import PasswordHasher
+# end of the section
 def create_user(db: Session, user_create: user_schema.UserRequest):
     hashed_password = (
         user_create.password + "encrypted code"
@@ -50,11 +53,28 @@ def login_user(db: Session, user_login: user_schema.UserLogin):
         find_user = get_user(db=db, user_cred=user_cred)
         if find_user:
             
-            user_found = db.query(user.User).filter(user.User.username == find_user.username or
-                                                       user.User.email == find_user.email).first()
-            hash_password = "hash" + user_found.hashed_password
+            
+        
 
-            if hash_password == user_schema.UserLogin.password:
+            # this section goes to security directory
+            # salt = secrets.token_bytes(16)
+
+            db_hash_salt = find_user.hashed_password.split(':')
+            input_salted_pass = db_hash_salt[0] + user_login.password 
+
+            ph = PasswordHasher()
+
+            hashed_input_p = ph.hash(input_salted_pass)
+
+            
+
+            if ph.verify(db_hash_salt[1], hashed_input_p):
+                
+                # 1. convert to json
+                # 2. put find_user to json
+                # 3. generate token
+                # 4. put token to json
+                # 5. return the variable
                 pass
                 # and then we return a user template in json/xml or whatever form
                 # we also generate token for cookie/session adn then return that also
