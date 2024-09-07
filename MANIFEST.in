@@ -1,4 +1,3 @@
-include *.py
-include alembic.ini
-recursive-include shared_database 
-recursive-include shared_database/alembic *.py
+include README.md
+include requirements.txt
+recursive-include shared_database *
