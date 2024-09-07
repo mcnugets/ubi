@@ -1,2 +1,4 @@
 include *.py
-recursive-include shared_database *.py
+include alembic.ini
+recursive-include shared_database 
+recursive-include shared_database/alembic *.py

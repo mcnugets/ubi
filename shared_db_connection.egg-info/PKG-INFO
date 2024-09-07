@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: shared_db_connection
+Version: 0.1.4
+Summary: shared database connection
+Home-page: https://github.com/mcnugets/ubi.git@database_connection
+Author: Sultan
+Description-Content-Type: text/markdown
+Requires-Dist: sqlalchemy>=1.4.0
+Requires-Dist: pydantic>=1.7.1
+Requires-Dist: python-dotenv>=0.17.0
