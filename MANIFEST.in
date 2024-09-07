@@ -1,2 +1,2 @@
 include *.py
-recursive-include database *.py
+recursive-include shared_database *.py
