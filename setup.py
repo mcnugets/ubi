@@ -15,5 +15,7 @@ setup(
         "sqlalchemy>=1.4.0,",
         "pydantic>=1.7.1",
         "python-dotenv>=0.17.0",
+        "alembic>=1.12.1"
     ],
+    include_package_data=True
 )
