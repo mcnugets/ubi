@@ -26,3 +26,10 @@ class UserResponse(UserBase):
 
     class Config:
         orm_mode = True
+
+class UserLogin(UserBase): 
+    password: str
+    login_date: datetime
+
+# for now we gonne leave it as it is but in the future I would need
+# to create custom validator and additional code for annotations and further metadata development
