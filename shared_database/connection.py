@@ -3,7 +3,6 @@ from sqlalchemy import create_engine, URL, text
 from configs import db_settngs
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.exc import SQLAlchemyError
-from alembic.env import run_migrations_online_local
 
 # Creating url objects using env vaeiables
 url_object = URL.create(
