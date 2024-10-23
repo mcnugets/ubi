@@ -14,3 +14,6 @@ UBI (Universal Basic Income) is a project aimed at [briefly describe the purpose
 
 
 ## Installation
+
+
+__Note: Integrate machine learning int to the app, to make it give recommendations to the user based on the booking availability
