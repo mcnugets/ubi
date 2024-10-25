@@ -1,6 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine, URL, text
-from configs import db_settngs
+from .configs import db_settngs
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.exc import SQLAlchemyError
 

@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="shared_db_connection",
-    version="0.1.4",
+    version="0.1.5",
     packages=find_packages(),
     description="shared database connection",
     long_description=open("README.md").read(),
