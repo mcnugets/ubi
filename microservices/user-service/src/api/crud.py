@@ -1,4 +1,5 @@
 from sqlalchemy.orm import Session
+from sqlalchemy import or_
 from ..models import user
 from ..schema import user_schema
 from typing import Tuple, Optional
@@ -7,10 +8,7 @@ from fastapi import HTTPException, status
 
 
 # end of the section
-def create_user(db: Session, user_create: user_schema.UserRequest):
-    hashed_password = (
-        user_create.password + "encrypted code"
-    )  # requires sha-256 encryption
+def create_user(db: Session, user_create: user_schema.UserRequest, hashed_password: str ):
     try:
         db_user = user.User(
             email=user_create.email,
@@ -33,11 +31,22 @@ def create_user(db: Session, user_create: user_schema.UserRequest):
         ) from sql_error
 
 
-def get_user(db: Session, user_cred: Optional[Tuple[str, str]] = None):
+def get_user(db: Session, user_cred: Optional[Tuple[Optional[str], Optional[str]]] = (None, None)):
+    """
+    Organizes a list of integers into a tuple of two lists:
+    - The first list contains all the 1s.
+    - The second list contains all the 2s.
+    
+    Parameters:
+    data (list): A list of integers to be organized.
+
+    Returns:
+    Tuple[list, list]: A tuple containing two lists (1s and 2s).
+    """
     (email, username) = user_cred
    
     try:
-        return db.query(user.User).filter(user.User.email == email or user.User.username == username).first()
+        return db.query(user.User).filter(or_(user.User.email == email, user.User.username == username)).first()
     except NoResultFound as err:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'Error: {err}')
 

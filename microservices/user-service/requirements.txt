@@ -1,3 +1,4 @@
+alembic==1.13.2
 annotated-types==0.7.0
 anyio==4.4.0
 argon2-cffi==23.1.0
@@ -16,6 +17,7 @@ httptools==0.6.1
 httpx==0.27.0
 idna==3.7
 Jinja2==3.1.4
+Mako==1.3.5
 markdown-it-py==3.0.0
 MarkupSafe==2.1.5
 mdurl==0.1.2
@@ -26,11 +28,11 @@ pydantic==2.7.4
 pydantic-settings==2.3.4
 pydantic_core==2.18.4
 Pygments==2.18.0
+PyJWT==2.9.0
 python-dotenv==1.0.1
 python-multipart==0.0.9
 PyYAML==6.0.1
 rich==13.7.1
-shared_db_connection @ git+https://github.com/mcnugets/ubi.git@a606c889b1cd39559cf507e4b5d469db840b765c
 shellingham==1.5.4
 sniffio==1.3.1
 SQLAlchemy==2.0.31

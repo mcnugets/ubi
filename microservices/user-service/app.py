@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Depends
-from .src.api.routes import router
+from src.api.routes import router
 from .dependencies import is_valid_token
 
 from .src.models.user import base
@@ -18,3 +18,4 @@ app.include_router(router=router)
 @app.get("/")
 async def root():
     return {"message": "Can confirm this shit works"}
+

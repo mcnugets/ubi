@@ -24,3 +24,4 @@ class User(base):
     hashed_password = Column(String)
     date_login = Column("date login", Date)
     date_created = Column("date created", Date)
+    is_active = Column(name="active status", type_=Boolean, default=True)
