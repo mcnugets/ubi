@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Union
 
 # UserBase
 
@@ -11,11 +11,12 @@ from typing import Optional
 class UserBase(BaseModel):
     username: str
     email: EmailStr
-
+    is_active: Union[bool, None] = None
 
 class UserRequest(UserBase):
     password: str
     date_created: datetime
+    
 
 
 class UserResponse(UserBase):
@@ -33,3 +34,7 @@ class UserLogin(UserBase):
 
 # for now we gonne leave it as it is but in the future I would need
 # to create custom validator and additional code for annotations and further metadata development
+
+import argparse
+
+

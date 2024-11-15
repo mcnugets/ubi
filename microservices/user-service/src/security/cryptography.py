@@ -3,3 +3,15 @@
 # how we perform hashing?
 # first generate salt, then concatenate with generated salt, hash it, concatenate with non hashed generated salt
 # use delimiter: salt + : + hashed password, then store in db
+from argon2 import PasswordHasher
+
+
+
+def hash_password(password: str):
+    pass
+
+def encrypt():
+    pass
+
+def decrypt():
+    pass

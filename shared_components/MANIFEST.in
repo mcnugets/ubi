@@ -1,2 +1,3 @@
-include *.py
-recursive-include database *.py
+include README.md
+include requirements.txt
+recursive-include shared_database *

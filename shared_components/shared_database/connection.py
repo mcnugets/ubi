@@ -3,7 +3,6 @@ from sqlalchemy import create_engine, URL, text
 from .configs import db_settngs
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.exc import SQLAlchemyError
-    
 
 # Creating url objects using env vaeiables
 url_object = URL.create(
@@ -17,11 +16,16 @@ url_object = URL.create(
 # establishing connection
 try:
     engine = create_engine(url_object)
+    
+    # add migration script
+    # TODO: MODIFY THE MIGRATION SCRIPT TO MAKE MORE DYNAMIC AND REUSABLE
     with engine.connect() as conn:
         conn.execute(text("select 1"))
         print(f"Connected to database: {db_settngs.PGDATABASE}")
 
     db_session = sessionmaker(bind=engine, autoflush=False)
+    
+    # env.run_migrations_online_local([('ubi_db', engine)], db_session())
 
     def get_db():
         db = db_session()
